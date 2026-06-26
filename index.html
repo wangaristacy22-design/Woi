@@ -2,12 +2,18 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>My Birthday 🎂</title>
-
-<style>
+<h1 class="birthday-title">EVERYBODY SAY HAPPY BIRTHDAY STACY</h1>
+  
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>.birthday-title {
+    color: white;
+    font-family: 'Dancing Script', cursive;
+    font-size: 60px;
+    text-align: center;
+}
 body {
   margin: 0;
-  font-family: 'Georgia', serif;
+  font-family: 'Dancing script', cursive;
   background: #000;
   color: white;
   overflow-x: hidden;
@@ -90,29 +96,66 @@ button {
 <body>
 
 <div class="hero">
-  Happy Birthday Stacy 💖
+   Happy Birthday Stacy 💖
 </div>
  <div style="max-width:500px;margin:auto;">
     <iframe style="border-radius:12px" 
-  
-src="https://open.spotify.com/embed/track/4h6ViRoztTBpWcJ1zFT9Zg?si=RiunURBDQ4aL_KzUtycF1g&pi=mRGo6krYSU-VP" 
   width="100%" height="152"
-  frameBorder="0" 
-  allow="autoplay; clipboard-write;
-encrypted-media; fullscreen;
-picture-in-picture">
+  frameBorder="0"
+      
+  <button onclick="toggleMusic()">🎵 Play / Pause Music</button>
+
+<audio id="bgMusic" loop>
+    <source src="birthday-song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("bgMusic");
+
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+    } else {
+        music.pause();
+    }
+}
+</script>
  </iframe>
 </div>
 <div class="section" style="background-image:url('photo2.jpg')"></div>
 
-<div class="text">
-  HI YOU! My name is Stacy and I am really glad to be turning a REALLY REALLY mature
-  age this year.If you really know me yk I can do lots of stuff(IM GENUINELY NOT BRAGGING)and i feel like its
-  so cool to be me or even know me.Anyways happy birthday to me and I hope you'll enjoy the music and videos
-                              ciao!!!
+<div class="text typewriter">
+  Hey guys welcome back to my youtube channel *Wink* Lakini nikianza youtube mtanisupport ama?
+  hahahahahaha.....Anyways a whole decade on this earth si mchezo.Happy birthday to me and all the june babes!!!
+                          BYE NOW (PS:dont be shy to write smthg huko chini ni anonymous XO)
 </div>
 
-<div class="section" style="background-image:url('photo3.jpg')"></div>
+<div class="section" style=.typewriter {
+    overflow: hidden;
+    white-space: pre-wrap;
+    border-right: 2px solid white;
+    width: 0;
+}
+
+.typewriter.start {
+    animation: typing 8s steps(300, end) forwards,
+               blink 0.8s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}"background-image:url('photo3.jpg')"></div>
 
 <div class="text">
   TO MORE LIFE AND BLESSINGS.PS;as obvious ilya
@@ -185,6 +228,16 @@ setInterval(()=>{
 },500);
 
 </script>
+const text = document.querySelector('.typewriter');
 
+const observer = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+        text.classList.add('start');
+    }
+}, { threshold: 0.5 });
+
+observer.observe(text);
+</script>
+  
 </body>
 </html>
