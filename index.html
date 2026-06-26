@@ -2,176 +2,291 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<h1 class="birthday-title">EVERYBODY SAY HAPPY BIRTHDAY STACY</h1>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Stacy!</title>
   
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-<style>.birthday-title {
-    color: white;
-    font-family: 'Dancing Script', cursive;
-    font-size: 60px;
-    text-align: center;
-}
+<style>
+/* SUMMER BACKGROUND WITH SKY AND SAND GRADIENT */
 body {
   margin: 0;
-  font-family: 'Dancing script', cursive;
-  background: #000;
-  color: white;
+  font-family: 'Dancing Script', cursive;
+  background: linear-gradient(to bottom, #4a90e2 0%, #63b3ed 40%, #e2e8f0 85%, #feebc8 100%);
+  background-attachment: fixed;
+  color: #1a202c; /* Darker text for readability against light background */
   overflow-x: hidden;
 }
 
-/* HERO */
+/* FLOATING CLOUDS BACKGROUND EFFECT */
+.clouds-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 100px;
+  filter: blur(8px);
+  animation: floatClouds 35s linear infinite;
+}
+
+.cloud::before, .cloud::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+}
+
+.cloud.c1 { width: 170px; height: 60px; top: 15%; left: -200px; animation-duration: 40s; }
+.cloud.c1::before { width: 80px; height: 80px; top: -40px; left: 20px; }
+.cloud.c1::after { width: 100px; height: 100px; top: -50px; right: 20px; }
+
+.cloud.c2 { width: 250px; height: 80px; top: 35%; left: -300px; animation-duration: 55s; animation-delay: 5s; }
+.cloud.c2::before { width: 110px; height: 110px; top: -55px; left: 30px; }
+.cloud.c2::after { width: 130px; height: 130px; top: -65px; right: 30px; }
+
+.cloud.c3 { width: 120px; height: 45px; top: 60%; left: -150px; animation-duration: 28s; animation-delay: 12s; opacity: 0.5; }
+.cloud.c3::before { width: 55px; height: 55px; top: -25px; left: 15px; }
+.cloud.c3::after { width: 65px; height: 65px; top: -30px; right: 15px; }
+
+@keyframes floatClouds {
+  0% { transform: translateX(-100px); }
+  100% { transform: translateX(115vw); }
+}
+
+/* THE GLOWING SUMMER SUN */
+.summer-sun {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #fffbeb 0%, #f6e05e 50%, #ecc94b 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 50px #ecc94b, 0 0 100px #f6e05e;
+  z-index: 0;
+  animation: pulseSun 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulseSun {
+  0% { transform: scale(1); box-shadow: 0 0 40px #ecc94b; }
+  100% { transform: scale(1.08); box-shadow: 0 0 65px #f6e05e, 0 0 20px #ecc94b; }
+}
+
+/* CONTENT LAYOUT STYLING */
+.birthday-title {
+  color: #fff;
+  font-family: 'Dancing Script', cursive;
+  font-size: 60px;
+  text-align: center;
+  text-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1;
+  margin-top: 30px;
+}
+
 .hero {
   height: 100vh;
-  background: url('photo1.jpg') center/cover no-repeat;
+  background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('photo1.jpg') center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   text-align: center;
-  text-shadow: 0 0 20px rgba(0,0,0,0.8);
+  color: white;
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.6);
+  position: relative;
+  z-index: 1;
 }
   
-/* IMAGE SECTIONS */
 .section {
   height: 100vh;
   background-size: cover;
   background-position: center;
+  position: relative;
+  z-index: 1;
+  box-shadow: inset 0 0 100px rgba(0,0,0,0.2);
 }
 
-/* TEXT */
 .text {
   padding: 80px 20px;
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   line-height: 1.8;
-  opacity: 0.9;
+  color: #1a202c;
+  font-weight: bold;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
 }
 
-/* WISH BOX */
-.wish-box {
-  padding: 60px 20px;
+/* MUSIC BUTTON */
+.music-container {
+  max-width: 500px;
+  margin: 30px auto;
   text-align: center;
-}
-
-input, textarea {
-  width: 80%;
-  padding: 12px;
-  margin: 10px;
-  border-radius: 8px;
-  border: none;
+  position: relative;
+  z-index: 2;
 }
 
 button {
-  padding: 12px 25px;
+  padding: 14px 30px;
   border: none;
-  background: white;
+  background: #ecc94b;
+  color: #2d3748;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
   cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
 }
 
-/* WISH DISPLAY */
-.wish {
-  margin: 10px auto;
-  width: 80%;
+button:hover {
+  background: #f6e05e;
+  transform: scale(1.05);
+}
+
+/* TYPEWRITER CONFIG */
+.typewriter {
+  overflow: hidden;
+  white-space: pre-wrap;
+  border-right: 3px solid #ecc94b;
+  width: 0;
+  margin: 0 auto;
+}
+
+.typewriter.start {
+  animation: typing 6s steps(300, end) forwards, blink 0.8s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* WISH BOX & FORMS */
+.wish-box {
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.wish-box h2 {
+  font-size: 2.5rem;
+  color: #2c5282;
+}
+
+.iframe-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.8);
   padding: 15px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 10px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
-/* FLOATING HEARTS */
-.heart {
+/* WISH DISPLAY FROM FIREBASE */
+#wishes {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.wish {
+  margin: 15px auto;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #2d3748;
+  border-left: 5px solid #ecc94b;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  font-size: 1.3rem;
+  text-align: left;
+}
+
+/* FLOATING SUMMER ELEMENTS */
+.summer-item {
   position: fixed;
-  bottom: -20px;
-  font-size: 20px;
-  animation: float 6s linear infinite;
-  opacity: 0.6;
+  bottom: -50px;
+  font-size: 28px;
+  animation: floatUp 7s linear infinite;
+  opacity: 0.7;
+  z-index: 0;
+  pointer-events: none;
 }
 
-@keyframes float {
-  0% {transform: translateY(0);}
-  100% {transform: translateY(-110vh);}
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-115vh) rotate(360deg); }
 }
 </style>
 </head>
 
 <body>
 
+<!-- Background Sun and Cloud Elements -->
+<div class="summer-sun"></div>
+<div class="clouds-container">
+  <div class="cloud c1"></div>
+  <div class="cloud c2"></div>
+  <div class="cloud c3"></div>
+</div>
+
+<h1 class="birthday-title">EVERYBODY SAY HAPPY BIRTHDAY STACY</h1>
+
 <div class="hero">
    Happy Birthday Stacy 💖
 </div>
- <div style="max-width:500px;margin:auto;">
-    <iframe style="border-radius:12px" 
-  width="100%" height="152"
-  frameBorder="0"
-      
+
+<div class="music-container">
   <button onclick="toggleMusic()">🎵 Play / Pause Music</button>
-
-<audio id="bgMusic" loop>
-    <source src="birthday-song.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-const music = document.getElementById("bgMusic");
-
-function toggleMusic() {
-    if (music.paused) {
-        music.play();
-    } else {
-        music.pause();
-    }
-}
-</script>
- </iframe>
+  <audio id="bgMusic" loop>
+      <source src="birthday-song.mp3" type="audio/mpeg">
+  </audio>
 </div>
+
 <div class="section" style="background-image:url('photo2.jpg')"></div>
 
+<!-- Typewriter section text -->
 <div class="text typewriter">
   Hey guys welcome back to my youtube channel *Wink* Lakini nikianza youtube mtanisupport ama?
   hahahahahaha.....Anyways a whole decade on this earth si mchezo.Happy birthday to me and all the june babes!!!
                           BYE NOW (PS:dont be shy to write smthg huko chini ni anonymous XO)
 </div>
 
-<div class="section" style=.typewriter {
-    overflow: hidden;
-    white-space: pre-wrap;
-    border-right: 2px solid white;
-    width: 0;
-}
-
-.typewriter.start {
-    animation: typing 8s steps(300, end) forwards,
-               blink 0.8s step-end infinite;
-}
-
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-@keyframes blink {
-    50% {
-        border-color: transparent;
-    }
-}"background-image:url('photo3.jpg')"></div>
+<div class="section" style="background-image:url('photo3.jpg')"></div>
 
 <div class="text">
   TO MORE LIFE AND BLESSINGS.PS;as obvious ilya
 </div>
 
+<!-- Guestbook / Google Form Section -->
 <div class="wish-box">
   <h2>Leave me a birthday wish 💌</h2>
-
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf0Z2LQpMbjEwAdQHx4gPKHiq16O77Vy7jV3Z9zOgGvhDMPgQ/viewform?embedded=true"
-   width="100%" height="600"
-  <style="border:none;border radius:12px;">
-
- </iframe>
+  <div class="iframe-container">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf0Z2LQpMbjEwAdQHx4gPKHiq16O77Vy7jV3Z9zOgGvhDMPgQ/viewform?embedded=true" width="100%" height="600" style="border:none; border-radius:12px;"></iframe>
+  </div>
+  
+  <!-- Firebase wishes will render here -->
+  <div id="wishes"></div>
 </div>
 
-<!-- FIREBASE -->
+<!-- FIREBASE & CORE SCRIPTS -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
@@ -190,54 +305,60 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 
-/* SEND WISH */
-window.sendWish = function(){
-  let name = document.getElementById("name").value;
-  let wish = document.getElementById("wish").value;
-
-  if(name && wish){
-    push(ref(db, "wishes"), {name, wish});
-    document.getElementById("name").value="";
-    document.getElementById("wish").value="";
-  }
-};
-
 /* LOAD WISHES */
 onValue(ref(db, "wishes"), snapshot => {
   let container = document.getElementById("wishes");
-  container.innerHTML = "";
-
-  snapshot.forEach(child => {
-    let data = child.val();
-    let div = document.createElement("div");
-    div.className = "wish";
-    div.innerHTML = "<b>" + data.name + ":</b> " + data.wish;
-    container.appendChild(div);
-  });
+  if(container) {
+    container.innerHTML = "";
+    snapshot.forEach(child => {
+      let data = child.val();
+      let div = document.createElement("div");
+      div.className = "wish";
+      div.innerHTML = "<b>" + (data.name || "Anonymous") + ":</b> " + data.wish;
+      container.appendChild(div);
+    });
+  }
 });
 
-/* HEARTS */
+/* FLOATING SUMMER ITEMS GENERATOR */
+const summerEmojis = ["☀️", "🌊", "🌴", "🍹", "🥥", "🍍", "😎", "✨"];
 setInterval(()=>{
-  let heart = document.createElement("div");
-  heart.className="heart";
-  heart.innerText="💖";
-  heart.style.left=Math.random()*100+"vw";
-  document.body.appendChild(heart);
+  let item = document.createElement("div");
+  item.className = "summer-item";
+  item.innerText = summerEmojis[Math.floor(Math.random() * summerEmojis.length)];
+  item.style.left = Math.random() * 100 + "vw";
+  // Randomize size slightly for depth
+  item.style.fontSize = (Math.random() * 15 + 20) + "px";
+  document.body.appendChild(item);
 
-  setTimeout(()=>heart.remove(),6000);
-},500);
-
+  setTimeout(() => item.remove(), 7000);
+}, 600);
 </script>
-const text = document.querySelector('.typewriter');
 
+<script>
+// Music Player Logic
+const music = document.getElementById("bgMusic");
+function toggleMusic() {
+    if (music.paused) {
+        music.play();
+    } else {
+        music.pause();
+    }
+}
+
+// Typewriter Interaction Observer
+const textElement = document.querySelector('.typewriter');
 const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
-        text.classList.add('start');
+        textElement.classList.add('start');
     }
-}, { threshold: 0.5 });
+}, { threshold: 0.2 });
 
-observer.observe(text);
+observer.observe(textElement);
 </script>
   
 </body>
 </html>
+
+```
+
